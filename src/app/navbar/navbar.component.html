@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" routerLink="#">Movies</a>
+    <a class="navbar-brand" routerLink="/">Movies</a>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -16,12 +16,12 @@
       </form>
 
       
-    <span class="navbar-nav ml-auto" *ngIf="isLoggedIn; else elseBlock">
+    <span class="navbar-text ml-auto" *ngIf="isLoggedIn; else elseBlock">
       {{username}}  (<a (click)="logout()" routerLink="/login">odhlásiť</a>)
     </span>
 
     <ng-template #elseBlock>
-      <span class="navbar-nav ml-auto"><a routerLink="/login">Prihlásenie</a></span>
+      <span class="navbar-text ml-auto"><a routerLink="/login">Prihlásenie</a></span>
     </ng-template>
     </div>
   </nav>
