@@ -1,15 +1,47 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MoviesService } from 'src/app/services/movies.service';
+import { delay } from 'rxjs/internal/operators/delay';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
+  nowPlaying: any;
+  tvShows: any;
+  responsiveOptions: any;
+  loader = true;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(
+    private movies: MoviesService,
+  ) {
+    this.responsiveOptions = [
+      {
+        breakpoint: '1024px',
+        numVisible: 3,
+        numScroll: 3
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 2,
+        numScroll: 2
+      },
+      {
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
+  }
+  ngOnInit() {
+    this.trendingMovies(1);
   }
 
+  trendingMovies(page: number) {
+    this.movies.getMovies().pipe(delay(2000)).subscribe((res: any) => {
+      this.nowPlaying = res.results;
+      this.loader = false;
+    });
+  }
 }

@@ -9,6 +9,16 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { MoviesComponent } from './movies/movies.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { SkeletonModule } from './shared/skeleton/skeleton.module';
+import { CarouselModule } from 'primeng/carousel';
+import { SidebarModule } from 'primeng/sidebar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,15 +26,23 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfileComponent,
+    BoardAdminComponent,
+    MoviesComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    CarouselModule,
+    SkeletonModule,
+    SidebarModule,
+
     HttpClientModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

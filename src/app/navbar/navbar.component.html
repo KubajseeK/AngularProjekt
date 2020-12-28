@@ -17,11 +17,11 @@
 
       
     <span class="navbar-text ml-auto" *ngIf="isLoggedIn; else elseBlock">
-      {{username}} <a class="nav-link" (click)="logout()">odhlásiť</a>
+      <a routerLink="/profile">{{username}}</a> <a class="nav-link" (click)="logout()">Logout</a>
     </span>
 
     <ng-template #elseBlock>
-      <span class="navbar-text ml-auto"><a routerLink="/login">Prihlásenie</a></span>
+      <span class="navbar-text ml-auto"><a routerLink="/login">Login</a></span>
 
       <span class="nav-item">
         <a class="nav-link" routerLink ="register">Register</a>

@@ -29,4 +29,8 @@ export class AuthService {
       password: user.password,
     }, httpOptions);
   }
+
+  loggedIn() {
+    return !!localStorage.getItem('auth-token')
+  }
 }
