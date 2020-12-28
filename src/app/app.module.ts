@@ -19,6 +19,10 @@ import { SkeletonModule } from './shared/skeleton/skeleton.module';
 import { CarouselModule } from 'primeng/carousel';
 import { SidebarModule } from 'primeng/sidebar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
+import { EditMenuComponent } from './admin/edit-menu/edit-menu.component';
+import { EditMovieComponent } from './admin/edit-movie/edit-movie.component';
+import { EditTvseriesComponent } from './admin/edit-tvseries/edit-tvseries.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProfileComponent,
     BoardAdminComponent,
     MoviesComponent,
+    EditMenuComponent,
+    EditMovieComponent,
+    EditTvseriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CarouselModule,
     SkeletonModule,
     SidebarModule,
-
+    MaterialModule,
     HttpClientModule
   ],
   providers: [authInterceptorProviders, AuthService, AuthGuard],

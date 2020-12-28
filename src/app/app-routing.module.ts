@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { EditMenuComponent } from './admin/edit-menu/edit-menu.component';
+import { EditMovieComponent } from './admin/edit-movie/edit-movie.component';
+import { EditTvseriesComponent } from './admin/edit-tvseries/edit-tvseries.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
@@ -15,7 +18,10 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'admin', component: BoardAdminComponent},
-  {path: 'movies', component: MoviesComponent}
+  {path: 'movies', component: MoviesComponent},
+  {path: 'edit', component: EditMenuComponent},
+  {path: 'edit/movies', component: EditMovieComponent},
+  {path: 'edit/tvseries', component: EditTvseriesComponent}
 ];
 
 @NgModule({
