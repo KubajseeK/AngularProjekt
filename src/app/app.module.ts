@@ -23,6 +23,7 @@ import { MaterialModule } from './modules/material/material.module';
 import { EditMenuComponent } from './admin/edit-menu/edit-menu.component';
 import { EditMovieComponent } from './admin/edit-movie/edit-movie.component';
 import { EditTvseriesComponent } from './admin/edit-tvseries/edit-tvseries.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { EditTvseriesComponent } from './admin/edit-tvseries/edit-tvseries.compo
     EditMenuComponent,
     EditMovieComponent,
     EditTvseriesComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

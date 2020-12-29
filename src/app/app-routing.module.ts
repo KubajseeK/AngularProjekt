@@ -8,6 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MoviesComponent } from './movies/movies.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'movies', component: MoviesComponent},
   {path: 'edit', component: EditMenuComponent},
   {path: 'edit/movies', component: EditMovieComponent},
-  {path: 'edit/tvseries', component: EditTvseriesComponent}
+  {path: 'edit/tvseries', component: EditTvseriesComponent},
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
