@@ -41,6 +41,8 @@
             role="alert"
             *ngIf="f.submitted && password.invalid"
           >
+          <div *ngIf="password.errors.required">Password is required!</div>
+          <div *ngIf="password.errors.minlength">Password must be at least 6 characters!</div>
           </div>
         </div>
         <div class="form-group">
@@ -54,7 +56,7 @@
             role="alert"
             *ngIf="f.submitted && isLoginFailed"
           >
-            Login failed: {{ errorMessage }}
+            Login failed: {{ errorMessage }} (Bad Login or password)
           </div>
         </div>
       </form>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 const AUTH_API = 'http://localhost:8080/api/auth/';
 
@@ -32,5 +33,14 @@ export class AuthService {
 
   loggedIn() {
     return !!localStorage.getItem('auth-token')
+  }
+
+  getData(): Observable<any> {
+    return this.http.get<any>(AUTH_API).pipe(catchError(this.handleError))
+  }
+
+  handleError(err: any) {
+    console.log(err)
+    return throwError(err)
   }
 }
