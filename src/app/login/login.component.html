@@ -1,5 +1,7 @@
-<div class="col-md-12">
+<main>
+<div class="col-md-12 wholeForm">
     <div class="card card-container">
+        <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card">
         <form
             #f="ngForm"
             (ngSubmit)="f.form.valid && onSubmit()"
@@ -68,3 +70,4 @@
         </div>
     </div>
 </div>
+</main>

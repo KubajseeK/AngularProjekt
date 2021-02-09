@@ -28,19 +28,19 @@ const routes: Routes = [
             {path: 'users', component: UsersTableComponent},
         ]
     },
-    {path: 'home', component: HomeComponent},
+    {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'profile', component: ProfileComponent},
-    {path: 'movies', component: MoviesComponent},
-    {path: 'tvseries', component: TvseriesComponent},
+    {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+    {path: 'movies', component: MoviesComponent, canActivate: [AuthGuard]},
+    {path: 'tvseries', component: TvseriesComponent, canActivate: [AuthGuard]},
     {path: 'edit/movies/:id', component: EditMovieComponent, canActivate: [AuthGuard]},
     {path: 'edit/tvseries/:id', component: EditTvseriesComponent, canActivate: [AuthGuard]},
     {path: 'create/movie', component: CreateMovieComponent, canActivate: [AuthGuard]},
     {path: 'create/tvseries', component: CreateTvseriesComponent, canActivate: [AuthGuard]},
-    {path: 'movies/:id', component: MovieDetailsComponent},
-    {path: 'tvseries/:id', component: TvseriesDetailsComponent},
+    {path: 'movies/:id', component: MovieDetailsComponent, canActivate: [AuthGuard]},
+    {path: 'tvseries/:id', component: TvseriesDetailsComponent, canActivate: [AuthGuard]},
     {path: '**', component: NotFoundComponent}
 ];
 

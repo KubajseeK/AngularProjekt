@@ -37,4 +37,13 @@ export class TvseriesService {
     searchSerial(search: string): any {
         return this.http.get<TvSerie>(SEARCH_URL + search, {responseType: 'json'});
     }
+
+    
+    getRelatedComments(serialId: number): Observable<any> {
+        return this.http.get(API_URL + 'comments/' + serialId, {responseType: 'json'});
+    }
+
+    createComment(comment: Comment, serialId: number): Observable<Comment> {
+        return this.http.post<Comment>(API_URL + 'comments/' + serialId + '/create', comment);
+    }
 }

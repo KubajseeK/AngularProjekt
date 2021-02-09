@@ -1,4 +1,5 @@
-<button class="btn btn-outline-primary btnAdd" routerLink="../../create/movie">Add movie</button>
+<div class="tableWrapper">
+    <button class="btn btn-outline-primary btnAdd" routerLink="../../create/movie">Add movie</button>
 <table class="table table-hover" style="width: 50%;">
     <thead>
     <tr>
@@ -13,15 +14,17 @@
         <td>{{movie.titleEN}} {{movie.secondTitleEN}}</td>
         <td>
             <button class="btn btn-outline-secondary" routerLink="/edit/movies/{{movie.movieID}}" type="button">
-                <!--<fa-icon [icon]="faEdit"></fa-icon>--> edit
+                <!--<fa-icon [icon]="faEdit"></fa-icon>--> Edit
             </button>
             <button (click)="deleteMovie(movie)" class="btn btn-outline-danger" type="button">
-                <!--<fa-icon [icon]="faDelete" style="color: darkred"></fa-icon>-->delete
+                <!--<fa-icon [icon]="faDelete" style="color: darkred"></fa-icon>-->Delete
             </button>
         </td>
     </tr>
     </tbody>
 </table>
+</div>
+
 <!--<button type="button" class="btn btn-dark" (click)="OnNewUserButtonClick()">-->
 <!--Add user-->
 <!--</button>-->

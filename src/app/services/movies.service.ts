@@ -41,4 +41,12 @@ export class MoviesService {
     searchMovie(search: string): any {
         return this.http.get<Movie>(SEARCH_URL + search, {responseType: 'json'});
     }
+
+    getRelatedComments(movieId: number): Observable<any> {
+        return this.http.get(API_URL + 'comments/' + movieId, {responseType: 'json'});
+    }
+
+    createComment(comment: Comment, movieId: number): Observable<Comment> {
+        return this.http.post<Comment>(API_URL + 'comments/' + movieId + '/create', comment);
+    }
 }

@@ -1,4 +1,47 @@
-<div class="trailer-container">
+<main>
+    <section class="glass">
+        <div class="content-wrapper">
+            <div class="trailer-container">
+                <div class="trailer">
+                    <iframe class="responsive-iframe" *ngIf="serial"
+                            [src]="serial.src | safe"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            frameborder="0"
+                    >
+                    </iframe>
+                </div>
+            
+                <div class="descriptionContainer">
+                    <h2>{{serial.titleEN}} {{serial.secondTitleEN}} ({{serial.titleSK}} {{serial.secondTitleSK}})</h2>
+                    <h6><b>Directors:</b> {{serial.director}}</h6>
+                    <h6><b>Actors: </b> {{serial.actors}}</h6>
+                    <p><b>Description:</b> {{serial.description}}</p>
+                </div>
+            </div>
+
+            <form (ngSubmit)="onSubmit()" action="" class="form-container">
+                <div class="form-group">
+                <textarea name="commentMessage" id="commentMessage" cols="150" rows="3" [(ngModel)]="comment.message"
+                          class="form-control col-sm-4"
+                          placeholder="Share your opinion"></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            
+            </form>
+            <div class="commentSection">
+                <div *ngFor="let comment of comments">
+                    <span>{{comment.username}}: {{comment.message}}</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+
+
+<!-- <div class="trailer-container">
     <div class="trailer">
         <iframe *ngIf="serial"
                 [src]="serial.src | safe"
@@ -16,4 +59,4 @@
         <h6><b>Actors: </b> {{serial.actors}}</h6>
         <p><b>Description:</b> {{serial.description}}</p>
     </div>
-</div>
+</div> -->

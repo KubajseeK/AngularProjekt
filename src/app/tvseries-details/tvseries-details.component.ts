@@ -25,6 +25,9 @@ export class SafePipe implements PipeTransform {
 export class TvseriesDetailsComponent implements OnInit {
 
     serial: TvSerie;
+    comments: Comment[];
+    comment: Comment = {};
+    serialId: number;
 
     constructor(private route: ActivatedRoute,
                 private tvseriesService: TvseriesService,
@@ -36,14 +39,38 @@ export class TvseriesDetailsComponent implements OnInit {
             if (paramMap.has('id')) {
                 return this.tvseriesService.getSerialById(+paramMap.get('id'));
             } else {
-                return of(new Movie());
+                return of(new TvSerie());
             }
         }))
             .subscribe(tvseries => {
                 this.serial = tvseries;
+                this.serialId = tvseries.serialID;
                 console.log(tvseries);
 
 
+            });
+        this.getComments();
+    }
+    onSubmit(): void {
+        this.tvseriesService.createComment(this.comment, this.serialId).subscribe(comment => {
+            this.comment = comment;
+            // this.router.navigateByUrl('movies/' + this.movieId);
+            this.getComments();
+        });
+
+    }
+
+    getComments(): any {
+        this.route.paramMap.pipe(switchMap(paramMap => {
+            if (paramMap.has('id')) {
+                return this.tvseriesService.getRelatedComments(+paramMap.get('id'));
+            } else {
+                return of(new Comment());
+            }
+        }))
+            .subscribe(comment => {
+                this.comments = comment;
+                console.log(comment);
             });
     }
 
